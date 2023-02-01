@@ -61,7 +61,7 @@ define Build/Patch
 endef
 
 define Build/Compile
-	cd $(PKG_BUILD_DIR); $(GO_PKG_VARS) $(USE_GOPROXY) go build -o $(PKG_INSTALL_DIR)/bin/sing-box -trimpath -tags with_gvisor,with_quic,with_ech,with_wireguard,with_utls,with_clash_api -ldflags "-s -w -buildid=" ./cmd/sing-box; 
+	cd $(PKG_BUILD_DIR); $(GO_PKG_VARS) $(USE_GOPROXY) go build -o $(PKG_INSTALL_DIR)/bin/sing-box -trimpath -ldflags "-s -w -buildid=" ./cmd/sing-box; 
 ifeq ($(CONFIG_PACKAGE_sing_COMPRESS_UPX),y)
 	rm -rf $(DL_DIR)/upx-4.0.1.tar.xz
 	wget -q https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz -O $(DL_DIR)/upx-4.0.1.tar.xz
