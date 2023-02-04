@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openwrt-sing
-PKG_VERSION:=1.1.4
+PKG_VERSION:=1.1.5
 PKG_RELEASE:=1
 
 PKG_LICENSE:=MPLv2
@@ -63,13 +63,13 @@ endef
 define Build/Compile
 	cd $(PKG_BUILD_DIR); $(GO_PKG_VARS) $(USE_GOPROXY) go build -o $(PKG_INSTALL_DIR)/bin/sing-box -trimpath -tags with_gvisor -ldflags "-s -w -buildid=" ./cmd/sing-box; 
 ifeq ($(CONFIG_PACKAGE_sing_COMPRESS_UPX),y)
-	rm -rf $(DL_DIR)/upx-4.0.1.tar.xz
-	wget -q https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz -O $(DL_DIR)/upx-4.0.1.tar.xz
+	rm -rf $(DL_DIR)/upx-4.0.2.tar.xz
+	wget -q https://github.com/upx/upx/releases/download/v4.0.2/upx-4.0.2-amd64_linux.tar.xz -O $(DL_DIR)/upx-4.0.2.tar.xz
 	rm -rf $(BUILD_DIR)/upx
 	mkdir -p $(BUILD_DIR)/upx
-	xz -d -c $(DL_DIR)/upx-4.0.1.tar.xz | tar -x -C $(BUILD_DIR)/upx
-	chmod +x $(BUILD_DIR)/upx/upx-4.0.1-amd64_linux/upx
-	$(BUILD_DIR)/upx/upx-4.0.1-amd64_linux/upx --lzma --best $(PKG_INSTALL_DIR)/bin/sing-box
+	xz -d -c $(DL_DIR)/upx-4.0.2.tar.xz | tar -x -C $(BUILD_DIR)/upx
+	chmod +x $(BUILD_DIR)/upx/upx-4.0.2-amd64_linux/upx
+	$(BUILD_DIR)/upx/upx-4.0.2-amd64_linux/upx --lzma --best $(PKG_INSTALL_DIR)/bin/sing-box
 endif
 endef
 
