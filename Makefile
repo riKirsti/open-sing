@@ -4,7 +4,7 @@ PKG_NAME:=openwrt-sing
 PKG_VERSION:=1.3.0
 PKG_RELEASE:=1
 
-PKG_LICENSE:=MPLv2
+PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=LICENSE
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/SagerNet/sing-box.git
@@ -13,23 +13,25 @@ PKG_MIRROR_HASH:=skip
 PKG_SOURCE_SUBDIR=sing-box-$(PKG_VERSION)
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
-PKG_USE_MIPS16:=0
+PKG_BUILD_FLAGS:=no-mips16
 
 GO_PKG:=github.com/SagerNet/sing-box
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/../feeds/packages/lang/golang/golang-package.mk
 
-define Package/$(PKG_NAME)
-	SECTION:=Custom
-	CATEGORY:=Extra packages
-	TITLE:=sing-box
-	DEPENDS:=$(GO_ARCH_DEPENDS)
-	PROVIDES:=sing-box
+define Package/sing-box
+  TITLE:=The universal proxy platform
+  SECTION:=net
+  CATEGORY:=Network
+  URL:=https://sing-box.sagernet.org
+  DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle +kmod-inet-diag +kmod-tun
+  USERID:=sing-box=5566:sing-box=5566
 endef
 
-define Package/$(PKG_NAME)/description
-	The universal proxy platform
+define Package/sing-box/description
+  Sing-box is a universal proxy platform which supports hysteria, SOCKS, Shadowsocks,
+  ShadowsocksR, ShadowTLS, Tor, trojan, VLess, VMess, WireGuard and so on.
 endef
 
 define Package/$(PKG_NAME)/config
