@@ -20,7 +20,7 @@ GO_PKG:=github.com/SagerNet/sing-box
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/../feeds/packages/lang/golang/golang-package.mk
 
-define Package/sing-box
+define Package/$(PKG_NAME)
   TITLE:=The universal proxy platform
   SECTION:=net
   CATEGORY:=Network
@@ -29,7 +29,7 @@ define Package/sing-box
   USERID:=sing-box=5566:sing-box=5566
 endef
 
-define Package/sing-box/description
+define Package/$(PKG_NAME)/description
   Sing-box is a universal proxy platform which supports hysteria, SOCKS, Shadowsocks,
   ShadowsocksR, ShadowTLS, Tor, trojan, VLess, VMess, WireGuard and so on.
 endef
