@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openwrt-sing
-PKG_VERSION:=1.6.3
+PKG_VERSION:=1.11.7
 PKG_RELEASE:=1
 
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=LICENSE
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/SagerNet/sing-box.git
-PKG_SOURCE_VERSION=dev
+PKG_SOURCE_VERSION=main
 PKG_MIRROR_HASH:=skip
 PKG_SOURCE_SUBDIR=sing-box-$(PKG_VERSION)
 PKG_BUILD_DEPENDS:=golang/host
