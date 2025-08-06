@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openwrt-sing
-PKG_VERSION:=1.11.15
+PKG_VERSION:=1.12.0
 PKG_RELEASE:=1
 
 PKG_LICENSE:=GPL-3.0-or-later
