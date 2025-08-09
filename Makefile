@@ -7,9 +7,9 @@ PKG_RELEASE:=1
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=LICENSE
 
-PKG_SOURCE:=sing-box-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/SagerNet/sing-box/archive/refs/tags/v$(PKG_VERSION).tar.gz
-PKG_HASH:=40ef03b6ea07db0babe895a8bbfdc10585be85e3b2e480233ecf54165370e867
+PKG_SOURCE:=v$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/SagerNet/sing-box/archive/refs/tags
+PKG_HASH:=1093254161d2dac2175a589eb0b43415b89b3e0c10bb2a09ac230f320d974c82
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_FLAGS:=no-mips16
